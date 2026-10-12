@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — EPHEM</title>
+  <meta name="description" content="Privacy Policy for EPHEM (com.ephem.chat). Detailed disclosure on our zero-server-storage, ephemeral peer-to-peer messaging architecture.">
+  <link rel="icon" type="image/png" href="app_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="app_logo.png" alt="EPHEM App Logo" class="brand-logo">
+        <span class="brand-name">EPHEM</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#how-it-works">Architecture</a></li>
+        <li><a href="privacy.html" style="color: #ffffff;">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+      <a href="index.html" class="btn btn-secondary">Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Legal Container -->
+  <main class="legal-page">
+    <div class="container">
+      <div class="legal-box">
+        <h1>Privacy Policy for EPHEM</h1>
+        <span class="meta-date">Effective Date: October 12, 2026 | Last Updated: October 12, 2026</span>
+
+        <div class="highlight-box">
+          <p>
+            <strong>Core Privacy Guarantee:</strong> EPHEM (Application ID: <code>com.ephem.chat</code>) is built on an ephemeral, zero-storage peer-to-peer paradigm. 
+            We do <strong>not</strong> store, log, read, inspect, or retain your messages or chat transcripts on any central server or database. All conversations live exclusively in temporary volatile device memory (RAM) and are permanently purged upon disconnection.
+          </p>
+        </div>
+
+        <h2>1. Overview and Scope</h2>
+        <p>
+          This Privacy Policy applies to the <strong>EPHEM</strong> mobile application (package name <code>com.ephem.chat</code>) developed and operated by Wali Khan ("we", "us", or "our"). 
+          This policy explains how information is handled when you access and use our application on mobile operating systems, including Android via the Google Play Store.
+        </p>
+
+        <h2>2. Information We Collect and Process</h2>
+
+        <h3>A. Account Registration Data</h3>
+        <p>
+          To authenticate users and authorize access to private room signaling, we collect:
+        </p>
+        <ul>
+          <li><strong>Email Address:</strong> Used solely as your account identifier and for authentication credentials.</li>
+          <li><strong>Password Credential:</strong> Securely hashed with industry-standard cryptographic salt/hash routines managed by our authentication infrastructure (Supabase Auth). We never have access to your plain-text password.</li>
+        </ul>
+
+        <h3>B. Real-Time Signaling Information (Transient)</h3>
+        <p>
+          To enable direct peer-to-peer WebRTC connections between your device and other room participants, temporary signaling payloads are exchanged:
+        </p>
+        <ul>
+          <li><strong>Session Identifiers & Room IDs:</strong> Temporary identifiers to match members of the same chat room.</li>
+          <li><strong>WebRTC SDP & ICE Candidates:</strong> Temporary network routing metadata (such as IP addresses and port candidates) exchanged through an encrypted signaling channel strictly to establish the direct peer-to-peer connection.</li>
+        </ul>
+        <p>
+          Once the peer-to-peer DataChannel is opened, signaling channels are closed, and signaling metadata is discarded.
+        </p>
+
+        <h3>C. Chat Messages and Communications (Zero Server Storage)</h3>
+        <p>
+          Unlike conventional chat applications:
+        </p>
+        <ul>
+          <li><strong>No Server Database Storage:</strong> Chat messages are transmitted <strong>directly between devices</strong> via WebRTC DataChannels secured with DTLS encryption.</li>
+          <li><strong>Volatile RAM Only:</strong> Messages exist solely within volatile device memory. When you navigate away, leave a room, or close the app, the conversation is wiped.</li>
+          <li><strong>No Chat Logging:</strong> We do not operate any database table or server log that records chat transcripts, message history, timestamps, or sender/recipient message pairings.</li>
+        </ul>
+
+        <h2>3. Third-Party Services & Infrastructure</h2>
+        <p>We work with trusted infrastructure providers to facilitate basic authentication and network traversal:</p>
+        <ul>
+          <li>
+            <strong>Supabase Inc.:</strong> Used for user authentication and private channel signaling. For more details on Supabase's data practices, review their privacy policy at 
+            <a href="https://supabase.com/privacy" target="_blank" rel="noopener" style="color: #818cf8;">supabase.com/privacy</a>.
+          </li>
+          <li>
+            <strong>Google STUN Servers:</strong> Used strictly for standard RFC 5389 NAT traversal to determine public IP candidates for direct P2P connections. No personal payload is transmitted through STUN.
+          </li>
+        </ul>
+
+        <h2>4. Device Permissions</h2>
+        <p>The EPHEM Android application requests the following network-related permissions:</p>
+        <ul>
+          <li><code>android.permission.INTERNET</code>: Required to communicate with authentication and establish peer-to-peer WebRTC connections.</li>
+          <li><code>android.permission.ACCESS_NETWORK_STATE</code>: Required to detect internet connectivity and monitor active network transitions (e.g., Wi-Fi to cellular).</li>
+          <li><code>android.permission.CHANGE_NETWORK_STATE</code>: Required by the WebRTC networking stack to manage peer socket connections.</li>
+        </ul>
+        <p>We do <strong>not</strong> request or access sensitive device permissions such as Camera, Microphone, Contacts, Location, or SMS.</p>
+
+        <h2>5. Advertising and Analytics</h2>
+        <p>
+          EPHEM does <strong>not</strong> display third-party advertisements and does <strong>not</strong> integrate third-party ad networks, tracking SDKs, or invasive analytics tools (such as Facebook SDK or Google AdMob).
+        </p>
+
+        <h2>6. Data Security</h2>
+        <p>
+          We implement industry-standard cryptographic and architectural measures:
+        </p>
+        <ul>
+          <li>All communication with our authentication and signaling services is encrypted in transit using Transport Layer Security (TLS 1.3 / HTTPS / WSS).</li>
+          <li>Peer-to-peer WebRTC connections use Datagram Transport Layer Security (DTLS) and Secure Real-time Transport Protocol (SRTP).</li>
+          <li>Authentication tokens are stored locally on your device using encrypted keystore mechanisms (Flutter Secure Storage).</li>
+        </ul>
+
+        <h2>7. Data Retention and Account Deletion</h2>
+        <p>
+          Since message content is strictly ephemeral and never stored on servers, there is no message history to retain or delete. 
+          Your authentication account (email) remains in the authentication database until you request deletion.
+        </p>
+        <p>
+          To request permanent deletion of your account and all associated profile records, you may contact us at 
+          <a href="mailto:support@ephem.chat" style="color: #818cf8;">support@ephem.chat</a> or submit a deletion request via our support channel. All account data will be permanently erased within 7 business days.
+        </p>
+
+        <h2>8. Children's Privacy</h2>
+        <p>
+          Our application is not intended for or directed to children under 13 years of age (or under 16 in the European Union). We do not knowingly collect personal information from children. If you become aware that a child has provided us with personal information, please contact us immediately so we can remove the account.
+        </p>
+
+        <h2>9. Changes to This Privacy Policy</h2>
+        <p>
+          We may update our Privacy Policy periodically to reflect technological or legal updates. Any revisions will be published on this page with an updated "Last Updated" date. Continued use of the application after changes constitute acceptance of the updated terms.
+        </p>
+
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us:</p>
+        <ul>
+          <li><strong>Developer:</strong> Wali Khan (EPHEM)</li>
+          <li><strong>Application ID:</strong> <code>com.ephem.chat</code></li>
+          <li><strong>Email:</strong> <a href="mailto:support@ephem.chat" style="color: #818cf8;">support@ephem.chat</a></li>
+          <li><strong>GitHub Repository:</strong> <a href="https://github.com/walikhan226/instantly" target="_blank" rel="noopener" style="color: #818cf8;">github.com/walikhan226/instantly</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-wrap">
+      <div class="footer-copy">
+        &copy; 2026 EPHEM (Application ID: <code>com.ephem.chat</code>). All rights reserved.
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

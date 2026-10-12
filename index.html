@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EPHEM — Zero-Trace Peer-to-Peer Encrypted Chat</title>
+  <meta name="description" content="EPHEM is a truly ephemeral peer-to-peer messaging application powered by WebRTC. Zero server message storage, RAM-only lifetime, and complete privacy.">
+  <link rel="icon" type="image/png" href="app_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="app_logo.png" alt="EPHEM App Logo" class="brand-logo">
+        <span class="brand-name">EPHEM</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">Architecture</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+      <a href="privacy.html" class="btn btn-secondary">Privacy Details</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="pill-badge">
+        <span class="dot"></span>
+        Zero Server Message Storage • True P2P
+      </div>
+      <h1>
+        Conversations That Live in Memory.<br>
+        <span class="hero-gradient">Gone The Second You Leave.</span>
+      </h1>
+      <p>
+        EPHEM creates temporary, direct peer-to-peer data channels between devices using WebRTC. 
+        Your messages never touch an application server database, are stored solely in volatile device RAM, and vanish entirely upon disconnect.
+      </p>
+      <div class="hero-actions">
+        <a href="https://play.google.com/store/apps/details?id=com.ephem.chat" class="btn btn-primary" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.609 1.814L13.793 12 3.61 22.186a2.02 2.02 0 0 1-.61-1.428V3.242c0-.53.22-1.037.61-1.428zM15.207 13.414l2.122 2.122-11.83 6.76 9.708-8.882zm0-2.828L5.498 1.704l11.83 6.76-2.121 2.122zm1.414 1.414l3.182-1.818c.95-.543.95-1.429 0-1.972l-3.182-1.818-1.768 1.768 1.768 3.84z"/>
+          </svg>
+          Google Play (Package: com.ephem.chat)
+        </a>
+        <a href="privacy.html" class="btn btn-secondary">
+          Read Privacy Policy
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Designed for Total Privacy & Ephemerality</h2>
+        <p>Built from the ground up to guarantee that your conversations cannot be harvested, logged, or subpoenaed from a central server.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Direct P2P WebRTC</h3>
+          <p>Messages travel directly device-to-device through encrypted WebRTC DataChannels. No middleman relay inspects or records your communication payload.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon emerald">🛡️</div>
+          <h3>Zero Server Persistence</h3>
+          <p>Our backend only negotiates the initial connection handshake. Zero message content, attachments, or conversation logs are stored in any database.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon cyan">🧠</div>
+          <h3>RAM-Only Memory Model</h3>
+          <p>Chat history exists exclusively in your device's volatile RAM. Closing the app, leaving the room, or losing connection permanently purges the chat.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⏱️</div>
+          <h3>Lamport Logical Clock</h3>
+          <p>Deterministic message ordering is achieved mathematically through Lamport timestamps, immune to device clock tampering or cross-continent skew.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon emerald">👥</div>
+          <h3>Private Ephemeral Rooms</h3>
+          <p>Create secure rooms with configurable capacity (2–5 members). Once all participants leave, the room identifier is immediately garbage collected.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon cyan">🚫</div>
+          <h3>No Ads, No Trackers</h3>
+          <p>No third-party ad networks, no analytics trackers, and no background telemetry scripts. Your network traffic is strictly yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>How EPHEM Works</h2>
+        <p>A multi-stage protocol that coordinates discovery without exposing private communications.</p>
+      </div>
+
+      <div class="architecture-box">
+        <div class="arch-steps">
+          <div class="arch-step">
+            <div class="arch-number">1</div>
+            <h4>Signaling Handshake</h4>
+            <p>Peers briefly exchange SDP offers and ICE network candidates through a private Realtime channel to locate each other.</p>
+          </div>
+          <div class="arch-step">
+            <div class="arch-number">2</div>
+            <h4>Direct P2P Mesh</h4>
+            <p>Once connected, peers switch to direct, reliable, ordered WebRTC DataChannels secured with DTLS encryption.</p>
+          </div>
+          <div class="arch-step">
+            <div class="arch-number">3</div>
+            <h4>Instant Memory Wipe</h4>
+            <p>When the room closes or a member disconnects, state is wiped cleanly from volatile RAM. No database traces remain.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-wrap">
+      <div class="footer-copy">
+        &copy; 2026 EPHEM (Application ID: <code>com.ephem.chat</code>). All rights reserved.
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
